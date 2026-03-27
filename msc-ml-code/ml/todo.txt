@@ -1,0 +1,5 @@
+- Implement stochastic gd, minibatch gd, both in regression and classification code (ex 1, 2)
+
+- check in the code available (FML) of classification task, to see if there's something i've missed
+
+- neural networks
