@@ -1,0 +1,178 @@
+
+**** 10/25/21 15:30:06 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "GmC-Filt-bias"  [ C:\Users\FraH\Desktop\Gm-C_Filters\01-GmC_Filters\ota_applications-pspicefiles\gmc-filt\bias.sim ] 
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "bias.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../ota_applications-pspicefiles/ota_applications.lib" 
+* From [PSPICE NETLIST] section of C:\Users\FraH\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieMatarr\diodi.lib" 
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieMatarr\base.lib" 
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieProgAutom\an35.lib" 
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieProgAutom\ams.lib" 
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\GmC-Filt.net" 
+
+
+
+**** INCLUDING GmC-Filt.net ****
+* source OTA_APPLICATIONS
+V_V1         VDD 0 5V
+V_V2         VSS 0 -5V
+M_Q1         N14879 0 N17256 N17256 MOSn1 
+M_Q2         N14887 0 N17256 N17256 mosn1 
+M_Q3         N14879 N14879 VDD VDD MOSp1 
+M_Q4         N14887 N14879 VDD VDD mosp1 
+M_Q5         N17256 N17472 VSS VSS MOSn1 
+V_V4         N17472 0 -3.9
+M_Q6         N25349 N25349 VDD VDD MOSp1 
+M_Q9         N25365 N25365 N25441 N25441 mosn1 
+M_Q8         N25349 N25425 N25441 N25441 MOSn1 
+M_Q7         N25365 N25349 VDD VDD mosp1 
+V_V11         N25537 0 -1.6V
+M_Q10         N25441 N25537 VSS VSS MOSn1 
+M_Q11         N26031 N26031 VDD VDD MOSp1 
+M_Q13         N26031 N28904 N26123 N26123 MOSn1 
+M_Q15         N26123 N26165 VSS VSS MOSn1 
+M_Q14         VO2 N27874 N26123 N26123 mosn1 
+M_Q12         VO2 N26031 VDD VDD mosp1 
+V_V12         N26165 0 -1.6V
+V_V13         N25425 0  AC 1
++SIN 0 1m 100k 0 0 0
+C_C1         0 N25365  0.32n  TC=0,0 
+M_Q18         N27858 VO2 N27968 N27968 MOSn1 
+M_Q20         N27968 N26165 VSS VSS MOSn1 
+M_Q16         N27858 N27858 VDD VDD MOSp1 
+M_Q17         N27874 N27858 VDD VDD mosp1 
+M_Q19         N27874 N27874 N27968 N27968 mosn1 
+C_C2         0 VO2  {C1_cap}  TC=0,0 
+C_C3         0 N27874  {C2_cap}  TC=0,0 
+V_V15         N28904 0  AC 1
++SIN 0 1m 100k 0 0 0
+.PARAM  c2_cap={k*q} c1_cap_qvar=1 k=318.3e-12 c2_cap_qvar=1 c1_cap={k/q} q=10
+
+**** RESUMING bias.cir ****
+.END
+
+**** 10/25/21 15:30:06 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "GmC-Filt-bias"  [ C:\Users\FraH\Desktop\Gm-C_Filters\01-GmC_Filters\ota_applications-pspicefiles\gmc-filt\bias.sim ] 
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               MOSn1           MOSp1           
+               NMOS            PMOS            
+       LEVEL    1               1            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+         VTO    1              -1            
+          KP     .01178          .01178      
+       GAMMA    0               0            
+         PHI     .6              .6          
+      LAMBDA    1.000000E-03    1.000000E-03 
+          IS   10.000000E-15   10.000000E-15 
+          JS    0               0            
+          PB     .8              .8          
+        PBSW     .8              .8          
+          CJ    0               0            
+        CJSW    0               0            
+        CGSO   50.000000E-15   50.000000E-15 
+        CGDO    5.000000E-15    5.000000E-15 
+        CGBO    0               0            
+         TOX    0               0            
+          XJ    0               0            
+       UCRIT   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    5               5            
+       XPART    0               0            
+
+
+**** 10/25/21 15:30:06 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "GmC-Filt-bias"  [ C:\Users\FraH\Desktop\Gm-C_Filters\01-GmC_Filters\ota_applications-pspicefiles\gmc-filt\bias.sim ] 
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  VDD)    5.0000  (  VO2) 6.555E-06  (  VSS)   -5.0000  (N14879)    3.9292     
+
+(N14887)    3.9292 (N17256)   -1.0707 (N17472)   -3.9000 (N25349)    2.3055     
+
+(N25365)     .0039 (N25425)    0.0000 (N25441)   -2.6926 (N25537)   -1.6000     
+
+(N26031)    2.3055 (N26123)   -2.6926 (N26165)   -1.6000 (N27858)    2.3055     
+
+(N27874)     .0039 (N27968)   -2.6925 (N28904)    0.0000 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.019E-01
+    V_V2         1.019E-01
+    V_V4         0.000E+00
+    V_V11        0.000E+00
+    V_V12        0.000E+00
+    V_V13        0.000E+00
+    V_V15        0.000E+00
+
+    TOTAL POWER DISSIPATION   1.02E+00  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 10/25/21 15:30:06 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "GmC-Filt-bias"  [ C:\Users\FraH\Desktop\Gm-C_Filters\01-GmC_Filters\ota_applications-pspicefiles\gmc-filt\bias.sim ] 
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =        0.00
+

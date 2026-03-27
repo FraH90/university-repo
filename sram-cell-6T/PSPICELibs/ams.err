@@ -1,0 +1,8 @@
+STATUS: PSpice Schematics to Capture translator (17.2.0.d001)
+STATUS:  
+STATUS: Translator started at Thursday, March 01, 2018 16:23:16
+STATUS: C:\Cadence\SPB_17.2\tools\bin\sch2cap -f "C:\Users\utente\Desktop\Librerie\ams.lib" -o "C:\Users\utente\Desktop\Librerie\ams.olb" -i C:\Users\utente\AppData\Roaming\SPB_16.6\cdssetup\OrCAD_PSpice/17.2.0/PSpice.ini
+INFO(ORSCH-1029): Using existing library 'C:\Cadence\SPB_17.2\tools\Capture\Library\PSpice\modeled.etc'.
+INFO(ORSCH-1029): Using existing library 'C:\Users\utente\Desktop\Librerie\ams.olb'.
+STATUS: Translator stopped at Thursday, March 01, 2018 16:23:17
+STATUS: 0 Error messages, 0 Warning messages

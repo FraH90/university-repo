@@ -1,0 +1,278 @@
+
+**** 07/24/22 20:12:07 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-0a-WriteVerify"  [ C:\Users\FraH\Desktop\StorageCircuits\0b-6TCell-SRAM - RW\0a-6tcell-pspicefiles\schematic
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "0a-WriteVerify.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "C:\Cadence\LibrerieMatarrese\diodi.lib" 
+.lib "C:\Cadence\LibrerieMatarrese\base.lib" 
+.lib "C:\Cadence\LibreriePACE\an35.lib" 
+.lib "C:\Cadence\LibreriePACE\ams.lib" 
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 2u 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source 0A-6TCELL
+M_M3         DATA DATANEG VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M2         DATANEG DATA 0 0 amsn  
++ L=1u  
++ W=2u         
+C_C1         0 BL  500f  TC=0,0 
+M_M1         DATA DATANEG 0 0 amsn  
++ L=1u  
++ W=2u         
+M_M4         DATANEG DATA VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M5         DATA WL BL 0 amsn  
++ L=1u  
++ W=30u         
+V_WL         WL_WRITE 0  
++PULSE 0 3V 0.15u 1n 1n 0.05u 0.9u
+C_C2         0 BL_NEG  500f  TC=0,0 
+M_M6         BL_NEG WL DATANEG 0 amsn  
++ L=1u  
++ W=30u         
+V_DataWrite         DATAWRITE 0  
++PULSE 0V 3V 0.1u 0.1n 0.1n 0.9u 1.8u
+V_V1         VDD 0 3V
+V_BL1         DATANEGWRITE 0  
++PULSE 3V 0V 0.1u 0.1n 0.1n 0.9u 1.8u
+V_RW         RW 0  
++PULSE 0 3V 0.1u 1p 1p 0.2u 0.9u
+X_S1    RW 0 WL WL_WRITE SCHEMATIC1_S1 
+X_S2    RW 0 WL WL_READ SCHEMATIC1_S2 
+V_WL1         WL_READ 0  
++PULSE 0 3V 0.3u 1n 1n 0.05u 0.9u
+X_S3    RW 0 BL DATAWRITE SCHEMATIC1_S3 
+X_S5    RW 0 BL_NEG DATANEGWRITE SCHEMATIC1_S5 
+M_M7         DATARETRIEVED DATARETRVNEG VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M9         DATARETRIEVED DATARETRVNEG 0 0 amsn  
++ L=1u  
++ W=2u         
+M_M10         DATARETRVNEG DATARETRIEVED 0 0 amsn  
++ L=1u  
++ W=2u         
+M_M8         DATARETRVNEG DATARETRIEVED VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M11         DATARETRIEVED PRECHRG DATARETRVNEG N38140 amsn  
++ L=1u  
++ W=10u         
+V_Precharge         PRECHRG 0  
++PULSE 0 3V 0.25u 1p 1p 50n 0.9u
+X_S6    RW 0 BL DATARETRIEVED SCHEMATIC1_S6 
+X_S7    RW 0 BL_NEG DATARETRVNEG SCHEMATIC1_S7 
+
+.subckt SCHEMATIC1_S1 1 2 3 4  
+S_S1         3 4 1 2 _S1
+RS_S1         1 2 1G
+.MODEL         _S1 VSWITCH Roff=100Meg Ron=0.01 Voff=0V Von=3V
+.ends SCHEMATIC1_S1
+
+.subckt SCHEMATIC1_S2 1 2 3 4  
+S_S2         3 4 1 2 _S2
+RS_S2         1 2 1G
+.MODEL         _S2 VSWITCH Roff=100Meg Ron=0.01 Voff=3V Von=0V
+.ends SCHEMATIC1_S2
+
+.subckt SCHEMATIC1_S3 1 2 3 4  
+S_S3         3 4 1 2 _S3
+RS_S3         1 2 1G
+.MODEL         _S3 VSWITCH Roff=100Meg Ron=0.01 Voff=0V Von=3V
+.ends SCHEMATIC1_S3
+
+.subckt SCHEMATIC1_S5 1 2 3 4  
+S_S5         3 4 1 2 _S5
+RS_S5         1 2 1G
+.MODEL         _S5 VSWITCH Roff=100Meg Ron=0.01 Voff=0V Von=3V
+.ends SCHEMATIC1_S5
+
+.subckt SCHEMATIC1_S6 1 2 3 4  
+S_S6         3 4 1 2 _S6
+RS_S6         1 2 1G
+.MODEL         _S6 VSWITCH Roff=100Meg Ron=0.01 Voff=3V Von=0V
+.ends SCHEMATIC1_S6
+
+.subckt SCHEMATIC1_S7 1 2 3 4  
+S_S7         3 4 1 2 _S7
+RS_S7         1 2 1G
+.MODEL         _S7 VSWITCH Roff=100Meg Ron=0.01 Voff=3V Von=0V
+.ends SCHEMATIC1_S7
+
+**** RESUMING 0a-WriteVerify.cir ****
+.END
+
+**** 07/24/22 20:12:07 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-0a-WriteVerify"  [ C:\Users\FraH\Desktop\StorageCircuits\0b-6TCell-SRAM - RW\0a-6tcell-pspicefiles\schematic
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               amsp            amsn            
+               PMOS            NMOS            
+       LEVEL    2               2            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+          LD -125.000000E-09   50.000000E-09 
+          WD  350.000000E-09  550.000000E-09 
+         VTO    -.81             .77         
+          KP   32.303600E-06  111.391700E-06 
+       GAMMA     .50081          .598183     
+         PHI     .763806         .782187     
+      LAMBDA    0               0            
+         RSH   55              20            
+          IS   10.000000E-15   10.000000E-15 
+          JS  200.000000E-06  500.000000E-06 
+          PB     .8              .8          
+        PBSW     .8              .8          
+          CJ  400.000000E-06  310.000000E-06 
+        CJSW  350.000000E-12  210.000000E-12 
+          MJ                     .46         
+        MJSW     .22             .16         
+        CGSO  350.000000E-12  350.000000E-12 
+        CGDO  350.000000E-12  350.000000E-12 
+        CGBO   55.000000E-12   55.000000E-12 
+        NSUB   37.500000E+15   53.500000E+15 
+         NFS  483.000000E+09  835.000000E+09 
+         TOX   15.500000E-09   15.500000E-09 
+          XJ   87.000000E-09   80.000000E-09 
+          UO  145             500            
+       UCRIT  308.000000E+03  377.000000E+03 
+        UEXP     .336            .324        
+        VMAX   61.300000E+03   61.900000E+03 
+        NEFF    2.57           10            
+       DELTA     .949            .237        
+          KF    4.660000E-27   27.600000E-27 
+          AF    1.61            1.53         
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    5               5            
+       XPART    0               0            
+
+
+**** 07/24/22 20:12:07 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-0a-WriteVerify"  [ C:\Users\FraH\Desktop\StorageCircuits\0b-6TCell-SRAM - RW\0a-6tcell-pspicefiles\schematic
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_S1._S1        X_S2._S2        X_S3._S3        X_S5._S5        
+         RON     .01             .01             .01             .01         
+        ROFF  100.000000E+06  100.000000E+06  100.000000E+06  100.000000E+06 
+         VON    3               0               3               3            
+        VOFF    0               3               0               0            
+
+
+               X_S6._S6        X_S7._S7        
+         RON     .01             .01         
+        ROFF  100.000000E+06  100.000000E+06 
+         VON    0               0            
+        VOFF    3               3            
+
+
+**** 07/24/22 20:12:07 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-0a-WriteVerify"  [ C:\Users\FraH\Desktop\StorageCircuits\0b-6TCell-SRAM - RW\0a-6tcell-pspicefiles\schematic
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   BL) 31.55E-09  (   RW)    0.0000  (   WL)    0.0000  (  VDD)    3.0000      
+
+( DATA) 12.84E-09  (BL_NEG)    3.0000 (N38140)     .1451 (DATANEG)    3.0000    
+
+(PRECHRG)    0.0000                   (WL_READ)    0.0000                       
+
+(WL_WRITE)    0.0000                  (DATAWRITE)    0.0000                     
+
+(DATANEGWRITE)    3.0000              (DATARETRVNEG)    3.0000                  
+
+(DATARETRIEVED) 31.55E-09             
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_WL         0.000E+00
+    V_DataWrite   3.155E-16
+    V_V1        -2.247E-11
+    V_BL1       -4.857E-16
+    V_RW         0.000E+00
+    V_WL1        0.000E+00
+    V_Precharge   0.000E+00
+
+    TOTAL POWER DISSIPATION   6.74E-11  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 07/24/22 20:12:07 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-0a-WriteVerify"  [ C:\Users\FraH\Desktop\StorageCircuits\0b-6TCell-SRAM - RW\0a-6tcell-pspicefiles\schematic
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .05
+

@@ -1,0 +1,146 @@
+
+**** 07/24/22 00:50:21 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-0a-WriteVerify"  [ C:\Users\FraH\Desktop\StorageCircuits\0a-6TCell-SRAM\0a-6tcell-pspicefiles\schematic1\0a-
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "0a-WriteVerify.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "C:\Cadence\LibrerieMatarrese\diodi.lib" 
+.lib "C:\Cadence\LibrerieMatarrese\base.lib" 
+.lib "C:\Cadence\LibreriePACE\an35.lib" 
+.lib "C:\Cadence\LibreriePACE\ams.lib" 
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 2u 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source 0A-6TCELL
+M_M3         DATA DATANEG VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M2         DATANEG DATA 0 0 amsn  
++ L=1u  
++ W=2u         
+C_C1         0 BL  500f  TC=0,0 
+M_M1         DATA DATANEG 0 0 amsn  
++ L=1u  
++ W=2u         
+M_M4         DATANEG DATA VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M5         DATA WL BL 0 amsn  
++ L=1u  
++ W=50u         
+V_WL         0 0  
++PULSE 0 3V 0.15u 1n 1n 0.05u 0.9u
+C_C2         0 BL_NEG  500f  TC=0,0 
+M_M6         BL_NEG WL DATANEG 0 amsn  
++ L=1u  
++ W=50u         
+V_BL         BL_WRITE 0  
++PULSE 0V 3V 0.1u 0.1n 0.1n 0.9u 1.8u
+V_V1         VDD 0 3V
+V_BL1         BL_NEG_WRITE 0  
++PULSE 3V 0V 0.1u 0.1n 0.1n 0.9u 1.8u
+V_RW         RW 0  
++PULSE 0 3V 0.1u 1p 1p 0.15u 0.9u
+X_S1    VDD 0 WL 0 SCHEMATIC1_S1 
+X_S2    VDD 0 WL 0 SCHEMATIC1_S2 
+V_WL1         0 0  
++PULSE 0 3V 0.15u 1n 1n 0.05u 0.9u
+X_S4    VDD 0 BL BL_READ SCHEMATIC1_S4 
+X_S3    VDD 0 BL BL_WRITE SCHEMATIC1_S3 
+V_BL2         BL_READ 0  
++PULSE 0V 3V 0.1u 0.1n 0.1n 0.9u 1.8u
+X_S6    VDD 0 BL BL_NEG_READ SCHEMATIC1_S6 
+X_S5    VDD 0 BL BL_NEG_WRITE SCHEMATIC1_S5 
+V_BL3         BL_NEG_READ 0  
++PULSE 3V 0V 0.1u 0.1n 0.1n 0.9u 1.8u
+M_M7         N27236 N27228 VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M8         N27228 N27236 VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M10         N27228 N27236 0 0 amsn  
++ L=1u  
++ W=2u         
+M_M9         N27236 N27228 0 0 amsn  
++ L=1u  
++ W=2u         
+X_S7    RW 0 BL N27236 SCHEMATIC1_S7 
+X_S8    RW 0 BL_NEG N27228 SCHEMATIC1_S8 
+
+.subckt SCHEMATIC1_S1 1 2 3 4  
+S_S1         3 4 1 2 _S1
+RS_S1         1 2 1G
+.MODEL         _S1 VSWITCH Roff=100Meg Ron=0.01 Voff=0V Von=3V
+.ends SCHEMATIC1_S1
+
+.subckt SCHEMATIC1_S2 1 2 3 4  
+S_S2         3 4 1 2 _S2
+RS_S2         1 2 1G
+.MODEL         _S2 VSWITCH Roff=100Meg Ron=0.01 Voff=3V Von=0V
+.ends SCHEMATIC1_S2
+
+.subckt SCHEMATIC1_S4 1 2 3 4  
+S_S4         3 4 1 2 _S4
+RS_S4         1 2 1G
+.MODEL         _S4 VSWITCH Roff=100Meg Ron=0.01 Voff=3V Von=0V
+.ends SCHEMATIC1_S4
+
+.subckt SCHEMATIC1_S3 1 2 3 4  
+S_S3         3 4 1 2 _S3
+RS_S3         1 2 1G
+.MODEL         _S3 VSWITCH Roff=100Meg Ron=0.01 Voff=0V Von=3V
+.ends SCHEMATIC1_S3
+
+.subckt SCHEMATIC1_S6 1 2 3 4  
+S_S6         3 4 1 2 _S6
+RS_S6         1 2 1G
+.MODEL         _S6 VSWITCH Roff=100Meg Ron=0.01 Voff=3V Von=0V
+.ends SCHEMATIC1_S6
+
+.subckt SCHEMATIC1_S5 1 2 3 4  
+S_S5         3 4 1 2 _S5
+RS_S5         1 2 1G
+.MODEL         _S5 VSWITCH Roff=100Meg Ron=0.01 Voff=0V Von=3V
+.ends SCHEMATIC1_S5
+
+.subckt SCHEMATIC1_S7 1 2 3 4  
+S_S7         3 4 1 2 _S7
+RS_S7         1 2 1G
+.MODEL         _S7 VSWITCH Roff=100Meg Ron=0.01 Voff=3V Von=0V
+.ends SCHEMATIC1_S7
+
+.subckt SCHEMATIC1_S8 1 2 3 4  
+S_S8         3 4 1 2 _S8
+RS_S8         1 2 1G
+.MODEL         _S8 VSWITCH Roff=100Meg Ron=0.01 Voff=3V Von=0V
+.ends SCHEMATIC1_S8
+
+**** RESUMING 0a-WriteVerify.cir ****
+.END
+
+ERROR(ORPSIM-15143): Voltage source and/or inductor loop involving V_WL. You may break the loop by adding a series resistance
+

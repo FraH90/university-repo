@@ -1,0 +1,293 @@
+
+**** 10/26/21 09:28:25 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "GmC-Filt-1stLPF-Vkconst"  [ C:\Users\FraH\Desktop\Gm-C_Filters\01-GmC_Filters\ota_applications-pspicefiles\gmc-filt\1st
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "1stLPF-Vkconst.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../ota_applications-pspicefiles/ota_applications.lib" 
+* From [PSPICE NETLIST] section of C:\Users\FraH\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieMatarr\diodi.lib" 
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieMatarr\base.lib" 
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieProgAutom\an35.lib" 
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieProgAutom\ams.lib" 
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.AC DEC 100 100k 10G
+.OP
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\GmC-Filt.net" 
+
+
+
+**** INCLUDING GmC-Filt.net ****
+* source OTA_APPLICATIONS
+V_V1         VDD 0 5V
+V_V2         VSS 0 -5V
+M_Q1         N14879 0 N17256 N17256 MOSn1 
+M_Q2         N14887 0 N17256 N17256 mosn1 
+M_Q3         N14879 N14879 VDD VDD MOSp1 
+M_Q4         N14887 N14879 VDD VDD mosp1 
+M_Q5         N17256 N17472 VSS VSS MOSn1 
+V_V4         N17472 0 -1.6
+M_Q6         N25349 N25349 VDD VDD MOSp1 
+M_Q9         N25365 N25365 N25441 N25441 mosn1 
+M_Q8         N25349 N25425 N25441 N25441 MOSn1 
+M_Q7         N25365 N25349 VDD VDD mosp1 
+V_V11         N25537 0 -1.6V
+M_Q10         N25441 N25537 VSS VSS MOSn1 
+M_Q11         N26031 N26031 VDD VDD MOSp1 
+M_Q13         N26031 N28904 N26123 N26123 MOSn1 
+M_Q15         N26123 N26165 VSS VSS MOSn1 
+M_Q14         VO2 N27874 N26123 N26123 mosn1 
+M_Q12         VO2 N26031 VDD VDD mosp1 
+V_V12         N26165 0 -1.6V
+V_V13         N25425 0  AC 1
++SIN 0 1m 100k 0 0 0
+C_C1         0 N25365  0.32n  TC=0,0 
+M_Q18         N27858 VO2 N27968 N27968 MOSn1 
+M_Q20         N27968 N26165 VSS VSS MOSn1 
+M_Q16         N27858 N27858 VDD VDD MOSp1 
+M_Q17         N27874 N27858 VDD VDD mosp1 
+M_Q19         N27874 N27874 N27968 N27968 mosn1 
+C_C2         0 VO2  {C1_cap}  TC=0,0 
+C_C3         0 N27874  {C2_cap}  TC=0,0 
+V_V15         N28904 0  AC 1
++SIN 0 1m 100k 0 0 0
+.PARAM  c2_cap={k*q} c2_cap_qvar=1 k=318.3e-12 c1_cap_qvar=1 c1_cap={k/q} q=10
+
+**** RESUMING 1stLPF-Vkconst.cir ****
+.END
+
+**** 10/26/21 09:28:25 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "GmC-Filt-1stLPF-Vkconst"  [ C:\Users\FraH\Desktop\Gm-C_Filters\01-GmC_Filters\ota_applications-pspicefiles\gmc-filt\1st
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               MOSn1           MOSp1           
+               NMOS            PMOS            
+       LEVEL    1               1            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+         VTO    1              -1            
+          KP     .01178          .01178      
+       GAMMA    0               0            
+         PHI     .6              .6          
+      LAMBDA    1.000000E-03    1.000000E-03 
+          IS   10.000000E-15   10.000000E-15 
+          JS    0               0            
+          PB     .8              .8          
+        PBSW     .8              .8          
+          CJ    0               0            
+        CJSW    0               0            
+        CGSO   50.000000E-15   50.000000E-15 
+        CGDO    5.000000E-15    5.000000E-15 
+        CGBO    0               0            
+         TOX    0               0            
+          XJ    0               0            
+       UCRIT   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    5               5            
+       XPART    0               0            
+
+
+**** 10/26/21 09:28:25 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "GmC-Filt-1stLPF-Vkconst"  [ C:\Users\FraH\Desktop\Gm-C_Filters\01-GmC_Filters\ota_applications-pspicefiles\gmc-filt\1st
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  VDD)    5.0000  (  VO2) 6.555E-06  (  VSS)   -5.0000  (N14879)    2.3046     
+
+(N14887)    2.3046 (N17256)   -2.6935 (N17472)   -1.6000 (N25349)    2.3055     
+
+(N25365)     .0039 (N25425)    0.0000 (N25441)   -2.6926 (N25537)   -1.6000     
+
+(N26031)    2.3055 (N26123)   -2.6926 (N26165)   -1.6000 (N27858)    2.3055     
+
+(N27874)     .0039 (N27968)   -2.6925 (N28904)    0.0000 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -1.358E-01
+    V_V2         1.358E-01
+    V_V4         0.000E+00
+    V_V11        0.000E+00
+    V_V12        0.000E+00
+    V_V13        0.000E+00
+    V_V15        0.000E+00
+
+    TOTAL POWER DISSIPATION   1.36E+00  WATTS
+
+
+**** 10/26/21 09:28:25 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "GmC-Filt-1stLPF-Vkconst"  [ C:\Users\FraH\Desktop\Gm-C_Filters\01-GmC_Filters\ota_applications-pspicefiles\gmc-filt\1st
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** MOSFETS
+
+
+NAME         M_Q1        M_Q2        M_Q3        M_Q4        M_Q5      
+MODEL        MOSn1       MOSn1       MOSp1       MOSp1       MOSn1     
+ID           1.70E-02    1.70E-02   -1.70E-02   -1.70E-02    3.40E-02 
+VGS          2.69E+00    2.69E+00   -2.70E+00   -2.70E+00    3.40E+00 
+VDS          5.00E+00    5.00E+00   -2.70E+00   -2.70E+00    2.31E+00 
+VBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+VTH          1.00E+00    1.00E+00   -1.00E+00   -1.00E+00    1.00E+00 
+VDSAT        1.69E+00    1.69E+00   -1.70E+00   -1.70E+00    2.40E+00 
+Lin0/Sat1   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+if          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+ir          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+TAU         -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+GM           2.00E-02    2.00E-02    2.00E-02    2.00E-02    2.72E-02 
+GDS          1.69E-05    1.69E-05    1.69E-05    1.69E-05    1.14E-03 
+GMB          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGSOV        5.00E-18    5.00E-18    5.00E-18    5.00E-18    5.00E-18 
+CGDOV        5.00E-19    5.00E-19    5.00E-19    5.00E-19    5.00E-19 
+CGBOV        0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGB          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+
+NAME         M_Q6        M_Q9        M_Q8        M_Q7        M_Q10     
+MODEL        MOSp1       MOSn1       MOSn1       MOSp1       MOSn1     
+ID          -1.70E-02    1.70E-02    1.70E-02   -1.70E-02    3.40E-02 
+VGS         -2.69E+00    2.70E+00    2.69E+00   -2.69E+00    3.40E+00 
+VDS         -2.69E+00    2.70E+00    5.00E+00   -5.00E+00    2.31E+00 
+VBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+VTH         -1.00E+00    1.00E+00    1.00E+00   -1.00E+00    1.00E+00 
+VDSAT       -1.69E+00    1.70E+00    1.69E+00   -1.69E+00    2.40E+00 
+Lin0/Sat1   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+if          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+ir          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+TAU         -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+GM           2.00E-02    2.00E-02    2.00E-02    2.01E-02    2.72E-02 
+GDS          1.69E-05    1.70E-05    1.69E-05    1.69E-05    1.13E-03 
+GMB          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGSOV        5.00E-18    5.00E-18    5.00E-18    5.00E-18    5.00E-18 
+CGDOV        5.00E-19    5.00E-19    5.00E-19    5.00E-19    5.00E-19 
+CGBOV        0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGB          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+
+NAME         M_Q11       M_Q13       M_Q15       M_Q14       M_Q12     
+MODEL        MOSp1       MOSn1       MOSn1       MOSn1       MOSp1     
+ID          -1.70E-02    1.70E-02    3.40E-02    1.70E-02   -1.70E-02 
+VGS         -2.69E+00    2.69E+00    3.40E+00    2.70E+00   -2.69E+00 
+VDS         -2.69E+00    5.00E+00    2.31E+00    2.69E+00   -5.00E+00 
+VBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+VTH         -1.00E+00    1.00E+00    1.00E+00    1.00E+00   -1.00E+00 
+VDSAT       -1.69E+00    1.69E+00    2.40E+00    1.70E+00   -1.69E+00 
+Lin0/Sat1   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+if          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+ir          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+TAU         -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+GM           2.00E-02    2.00E-02    2.72E-02    2.00E-02    2.01E-02 
+GDS          1.69E-05    1.69E-05    1.13E-03    1.70E-05    1.69E-05 
+GMB          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGSOV        5.00E-18    5.00E-18    5.00E-18    5.00E-18    5.00E-18 
+CGDOV        5.00E-19    5.00E-19    5.00E-19    5.00E-19    5.00E-19 
+CGBOV        0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGB          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+
+NAME         M_Q18       M_Q20       M_Q16       M_Q17       M_Q19     
+MODEL        MOSn1       MOSn1       MOSp1       MOSp1       MOSn1     
+ID           1.70E-02    3.40E-02   -1.70E-02   -1.70E-02    1.70E-02 
+VGS          2.69E+00    3.40E+00   -2.69E+00   -2.69E+00    2.70E+00 
+VDS          5.00E+00    2.31E+00   -2.69E+00   -5.00E+00    2.70E+00 
+VBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+VTH          1.00E+00    1.00E+00   -1.00E+00   -1.00E+00    1.00E+00 
+VDSAT        1.69E+00    2.40E+00   -1.69E+00   -1.69E+00    1.70E+00 
+Lin0/Sat1   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+if          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+ir          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+TAU         -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+GM           2.00E-02    2.72E-02    2.00E-02    2.01E-02    2.00E-02 
+GDS          1.69E-05    1.13E-03    1.69E-05    1.69E-05    1.70E-05 
+GMB          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGSOV        5.00E-18    5.00E-18    5.00E-18    5.00E-18    5.00E-18 
+CGDOV        5.00E-19    5.00E-19    5.00E-19    5.00E-19    5.00E-19 
+CGBOV        0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGS          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGD          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGB          0.00E+00    0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+
+          JOB CONCLUDED
+
+**** 10/26/21 09:28:25 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "GmC-Filt-1stLPF-Vkconst"  [ C:\Users\FraH\Desktop\Gm-C_Filters\01-GmC_Filters\ota_applications-pspicefiles\gmc-filt\1st
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .06
+

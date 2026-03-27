@@ -1,0 +1,68 @@
+
+**** 07/23/22 18:21:26 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-transient"  [ C:\Users\FraH\Desktop\StorageCircuits\0a-6TCell-SRAM\0a-6TCell-PSpiceFiles\SCHEMATIC1\transien
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "transient.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "C:\Cadence\LibreriePACE\an35.lib" 
+.lib "C:\Cadence\LibreriePACE\ams.lib" 
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 1000ns 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source 0A-6TCELL
+M_M3         N14859 N14851 N14769 N14769 amsp  
++ L=1u  
++ W=1u         
+M_M2         N14851 N14859 0 0 amsn  
++ L=1u  
++ W=1u         
+V_BL_Neg         0 0  
++PULSE 1 0 1u 1n 1n 99 100
+C_C1         0 0  500f  TC=0,0 
+M_M1         N14859 N14851 0 0 amsn  
++ L=1u  
++ W=1u         
+M_M4         N14851 N14859 N14769 N14769 amsp  
++ L=1u  
++ W=1u         
+M_M5         N14859 WL 0 0 amsn  
++ L=1u  
++ W=1u         
+V_BL         N15173 0  
++PULSE 0 1 1u 1n 1n 99 100
+C_C2         0 0  500f  TC=0,0 
+M_M6         0 WL N14851 0 amsn  
++ L=1u  
++ W=1u         
+V_BL1         WL 0  
++PULSE 0 1 1u 1n 1n 99 100
+V_V1         N14769 0 3V
+
+**** RESUMING transient.cir ****
+.END
+
+ERROR(ORPSIM-15143): Voltage source and/or inductor loop involving V_BL_Neg. You may break the loop by adding a series resistance
+

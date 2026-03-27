@@ -1,0 +1,26 @@
+** Profile: "GmC-Filt-2ndLPF-QVar"  [ C:\Users\FraH\Desktop\Gm-C_Filters\01-GmC_Filters\ota_applications-pspicefiles\gmc-filt\2ndlpf-qvar.sim ] 
+
+** Creating circuit file "2ndLPF-QVar.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../ota_applications-pspicefiles/ota_applications.lib" 
+* From [PSPICE NETLIST] section of C:\Users\FraH\AppData\Roaming\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieMatarr\diodi.lib" 
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieMatarr\base.lib" 
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieProgAutom\an35.lib" 
+.lib "C:\Cadence\SPB_17.2\tools\capture\library\LibrerieProgAutom\ams.lib" 
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.AC DEC 100 100k 1G
+.OP
+.STEP DEC PARAM Q 0.5 10 10 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\GmC-Filt.net" 
+
+
+.END

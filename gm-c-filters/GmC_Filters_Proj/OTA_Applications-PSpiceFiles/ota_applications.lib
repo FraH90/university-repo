@@ -1,0 +1,8 @@
+* PSpice Model Editor - Version 17.2.0
+*$
+.MODEL MOSp1 PMOS(Level=1 KP=11.78e-3 VTO=-1E+00 lambda=1e-3
++			CGSO=50E-15 CGDO=5E-15) 
+*$
+.MODEL MOSn1 NMOS(Level=1  KP=11.78e-3 VTO=1E+00 lambda=1e-3
++			CGSO=50E-15 CGDO=5E-15) 
+*$

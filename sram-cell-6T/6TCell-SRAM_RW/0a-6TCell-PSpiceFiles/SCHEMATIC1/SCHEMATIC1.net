@@ -1,0 +1,91 @@
+* source 0A-6TCELL
+M_M3         DATA DATANEG VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M2         DATANEG DATA 0 0 amsn  
++ L=1u  
++ W=2u         
+C_C1         0 BL  500f  TC=0,0 
+M_M1         DATA DATANEG 0 0 amsn  
++ L=1u  
++ W=2u         
+M_M4         DATANEG DATA VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M5         DATA WL BL 0 amsn  
++ L=1u  
++ W=30u         
+V_WL         WL_WRITE 0  
++PULSE 0 3V 0.15u 1n 1n 0.05u 0.9u
+C_C2         0 BL_NEG  500f  TC=0,0 
+M_M6         BL_NEG WL DATANEG 0 amsn  
++ L=1u  
++ W=30u         
+V_DataWrite         DATAWRITE 0  
++PULSE 0V 3V 0.1u 0.1n 0.1n 0.9u 1.8u
+V_V1         VDD 0 3V
+V_BL1         DATANEGWRITE 0  
++PULSE 3V 0V 0.1u 0.1n 0.1n 0.9u 1.8u
+V_RW         RW 0  
++PULSE 0 3V 0.1u 1p 1p 0.2u 0.9u
+X_S1    RW 0 WL WL_WRITE SCHEMATIC1_S1 
+X_S2    RW 0 WL WL_READ SCHEMATIC1_S2 
+V_WL1         WL_READ 0  
++PULSE 0 3V 0.3u 1n 1n 0.05u 0.9u
+X_S3    RW 0 BL DATAWRITE SCHEMATIC1_S3 
+X_S5    RW 0 BL_NEG DATANEGWRITE SCHEMATIC1_S5 
+M_M7         DATARETRIEVED DATARETRVNEG VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M9         DATARETRIEVED DATARETRVNEG 0 0 amsn  
++ L=1u  
++ W=2u         
+M_M10         DATARETRVNEG DATARETRIEVED 0 0 amsn  
++ L=1u  
++ W=2u         
+M_M8         DATARETRVNEG DATARETRIEVED VDD VDD amsp  
++ L=1u  
++ W=5u         
+M_M11         DATARETRIEVED PRECHRG DATARETRVNEG N38140 amsn  
++ L=1u  
++ W=10u         
+V_Precharge         PRECHRG 0  
++PULSE 0 3V 0.25u 1p 1p 50n 0.9u
+X_S6    RW 0 BL DATARETRIEVED SCHEMATIC1_S6 
+X_S7    RW 0 BL_NEG DATARETRVNEG SCHEMATIC1_S7 
+
+.subckt SCHEMATIC1_S1 1 2 3 4  
+S_S1         3 4 1 2 _S1
+RS_S1         1 2 1G
+.MODEL         _S1 VSWITCH Roff=100Meg Ron=0.01 Voff=0V Von=3V
+.ends SCHEMATIC1_S1
+
+.subckt SCHEMATIC1_S2 1 2 3 4  
+S_S2         3 4 1 2 _S2
+RS_S2         1 2 1G
+.MODEL         _S2 VSWITCH Roff=100Meg Ron=0.01 Voff=3V Von=0V
+.ends SCHEMATIC1_S2
+
+.subckt SCHEMATIC1_S3 1 2 3 4  
+S_S3         3 4 1 2 _S3
+RS_S3         1 2 1G
+.MODEL         _S3 VSWITCH Roff=100Meg Ron=0.01 Voff=0V Von=3V
+.ends SCHEMATIC1_S3
+
+.subckt SCHEMATIC1_S5 1 2 3 4  
+S_S5         3 4 1 2 _S5
+RS_S5         1 2 1G
+.MODEL         _S5 VSWITCH Roff=100Meg Ron=0.01 Voff=0V Von=3V
+.ends SCHEMATIC1_S5
+
+.subckt SCHEMATIC1_S6 1 2 3 4  
+S_S6         3 4 1 2 _S6
+RS_S6         1 2 1G
+.MODEL         _S6 VSWITCH Roff=100Meg Ron=0.01 Voff=3V Von=0V
+.ends SCHEMATIC1_S6
+
+.subckt SCHEMATIC1_S7 1 2 3 4  
+S_S7         3 4 1 2 _S7
+RS_S7         1 2 1G
+.MODEL         _S7 VSWITCH Roff=100Meg Ron=0.01 Voff=3V Von=0V
+.ends SCHEMATIC1_S7

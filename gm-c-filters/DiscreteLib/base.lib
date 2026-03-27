@@ -1,0 +1,112 @@
+*** Sia per i BJT che per i MOS vi sono 3 diverse .model, nel caso si vogliano utilizzare transistor 
+*** con valori diversi dei parametri all'interno dello stesso circuito (es.: 2 mosfet con k o VTO diverse tra loro).
+
+**** LIBRERIE dei BJT:
+
+**** Inserire il valore del guadagno in corrente (beta) della traccia al posto di BF.
+**** Inserire il valore della tensione di Early (VA) della traccia al posto di VAF; se si "commenta", ovvero si fa precedere 
+**** il valore di VAF da 1 asterisco, il simulatore assegna un valore di default pari ad infinito.
+**** Inserire il valore delle capacità Cpgreca e Cmu della traccia al posto, rispettivamente, di CJE e CJC.
+
+
+*$
+.MODEL Qnpn1 NPN
++ IS=1.000E-15
++ BF=100
++ VAF=200
++ VJE=1000 VJC=1000 VJS=1000
++ CJE=13.9000E-12
++ CJC=2.0000E-12
++ RB=0
+*$
+
+.MODEL Qnpn2 NPN
++ IS=1.000E-15
++ BF=100
++ VAF=200
++ VJE=1000 VJC=1000 VJS=1000
++ CJE=13.9000E-12
++ CJC=2.0000E-12
++ RB=0
+*$
+
+.MODEL Qnpn3 NPN
++ IS=1.000E-15
++ BF=100
++ VAF=200
++ VJE=1000 VJC=1000 VJS=1000
++ CJE=13.9000E-12
++ CJC=2.0000E-12
++ RB=0
+
+
+*$
+.MODEL Qpnp1 PNP
++ IS=1.000E-15
++ BF=100
++ VAF=80
++ VJE=1000 VJC=1000 VJS=1000
++ CJE=5.0000E-12
++ CJC=0.5000E-12
++ RB=0
+
+*$
+.MODEL Qpnp2 PNP
++ IS=1.000E-15
++ BF=100
++ VAF=80
++ VJE=1000 VJC=1000 VJS=1000
++ CJE=5.0000E-12
++ CJC=0.5000E-12
++ RB=0
+
+*$
+.MODEL Qpnp3 PNP
++ IS=1.000E-15
++ BF=100
++ VAF=80
++ VJE=1000 VJC=1000 VJS=1000
++ CJE=5.0000E-12
++ CJC=0.5000E-12
++ RB=0
+*$
+
+
+**** LIBRERIE DEI MOSFET:
+
+**** Inserire il valore di k della traccia al posto di KP; nota: il k della traccia è la metà
+**** del KP da inserire (zona di saturazione).
+**** Inserire il valore di Vth della traccia al posto del valore di VTO.
+**** Inserire il valore di lambda della traccia nelle 2 punto model; se non si inserisce 
+**** alcun valore di lambda, o se si "commenta" il valore inserito, il simulatore assume un valore di default pari a 0.
+**** Per lo studio in alta frequenza, inserire nelle 2 punto model il valore di CGS e CGD della
+**** traccia diviso per 100E-6, al posto di CGSO e CGDO (es.: se CGS=5pF, bisogna sostituire in
+**** CGSO il valore 5E-12/100E-6 = 50E-9).
+
+
+*$
+.MODEL MOSn1 NMOS(Level=1  KP=0.4e-3 VTO=1E+00 lambda=1e-3
++			CGSO=50E-15 CGDO=5E-15) 
+*$
+
+.MODEL MOSn2 NMOS(Level=1  KP=0.4e-3 VTO=1E+00 lambda=1e-3
++			CGSO=50E-15 CGDO=5E-15) 
+*$
+
+.MODEL MOSn3 NMOS(Level=1  KP=0.4e-3 VTO=1E+00 lambda=1e-3
++			CGSO=50E-15 CGDO=5E-15) 
+
+
+*$
+.MODEL MOSp1 PMOS(Level=1 KP=0.4e-3 VTO=-1E+00 lambda=1e-3
++			CGSO=50E-15 CGDO=5E-15) 
+*$
+
+.MODEL MOSp2 PMOS(Level=1 KP=0.4e-3 VTO=-1E+00 lambda=1e-3
++			CGSO=50E-15 CGDO=5E-15) 
+*$
+
+.MODEL MOSp3 PMOS(Level=1 KP=0.4e-3 VTO=-1E+00 lambda=1e-3
++			CGSO=50E-15 CGDO=5E-15) 
+
+*$

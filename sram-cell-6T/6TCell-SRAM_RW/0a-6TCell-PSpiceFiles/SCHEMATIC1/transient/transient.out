@@ -1,0 +1,175 @@
+
+**** 07/23/22 18:54:29 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-transient"  [ C:\Users\FraH\Desktop\StorageCircuits\0a-6TCell-SRAM\0a-6tcell-pspicefiles\schematic1\transien
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "transient.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+* From [PSPICE NETLIST] section of C:\SPB_Data\cdssetup\OrCAD_PSpice\17.2.0\PSpice.ini file:
+.lib "C:\Cadence\LibreriePACE\an35.lib" 
+.lib "C:\Cadence\LibreriePACE\ams.lib" 
+.lib "nomd.lib" 
+
+*Analysis directives: 
+.TRAN  0 3u 0 
+.OPTIONS ADVCONV
+.PROBE64 V(alias(*)) I(alias(*)) W(alias(*)) D(alias(*)) NOISE(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source 0A-6TCELL
+M_M3         N14859 N14851 N14769 N14769 amsp  
++ L=1u  
++ W=1u         
+M_M2         N14851 N14859 0 0 amsn  
++ L=1u  
++ W=1u         
+C_C1         0 BL  500f  TC=0,0 
+M_M1         N14859 N14851 0 0 amsn  
++ L=1u  
++ W=1u         
+M_M4         N14851 N14859 N14769 N14769 amsp  
++ L=1u  
++ W=1u         
+M_M5         N14859 WL BL 0 amsn  
++ L=1u  
++ W=1u         
+V_WL         WL 0  
++PULSE 0 3V 110n 1p 1p 50n 300n
+C_C2         0 BL_NEG  500f  TC=0,0 
+M_M6         BL_NEG WL N14851 0 amsn  
++ L=1u  
++ W=1u         
+V_BL         BL 0  
++PULSE 0V 3V 100n 1p 1p 300n 600n
+V_V1         N14769 0 3V
+V_BL1         BL_NEG 0  
++PULSE 3V 0V 100n 1p 1p 300n 600n
+
+**** RESUMING transient.cir ****
+.END
+
+**** 07/23/22 18:54:29 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-transient"  [ C:\Users\FraH\Desktop\StorageCircuits\0a-6TCell-SRAM\0a-6tcell-pspicefiles\schematic1\transien
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               amsp            amsn            
+               PMOS            NMOS            
+       LEVEL    2               2            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+          LD -125.000000E-09   50.000000E-09 
+          WD  350.000000E-09  550.000000E-09 
+         VTO    -.81             .77         
+          KP   32.303600E-06  111.391700E-06 
+       GAMMA     .50081          .598183     
+         PHI     .763806         .782187     
+      LAMBDA    0               0            
+         RSH   55              20            
+          IS   10.000000E-15   10.000000E-15 
+          JS  200.000000E-06  500.000000E-06 
+          PB     .8              .8          
+        PBSW     .8              .8          
+          CJ  400.000000E-06  310.000000E-06 
+        CJSW  350.000000E-12  210.000000E-12 
+          MJ                     .46         
+        MJSW     .22             .16         
+        CGSO  350.000000E-12  350.000000E-12 
+        CGDO  350.000000E-12  350.000000E-12 
+        CGBO   55.000000E-12   55.000000E-12 
+        NSUB   37.500000E+15   53.500000E+15 
+         NFS  483.000000E+09  835.000000E+09 
+         TOX   15.500000E-09   15.500000E-09 
+          XJ   87.000000E-09   80.000000E-09 
+          UO  145             500            
+       UCRIT  308.000000E+03  377.000000E+03 
+        UEXP     .336            .324        
+        VMAX   61.300000E+03   61.900000E+03 
+        NEFF    2.57           10            
+       DELTA     .949            .237        
+          KF    4.660000E-27   27.600000E-27 
+          AF    1.61            1.53         
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    5               5            
+       XPART    0               0            
+
+
+**** 07/23/22 18:54:29 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-transient"  [ C:\Users\FraH\Desktop\StorageCircuits\0a-6TCell-SRAM\0a-6tcell-pspicefiles\schematic1\transien
+
+
+ ****     INITIAL TRANSIENT SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(   BL)    0.0000  (   WL)    0.0000  (BL_NEG)    3.0000 (N14769)    3.0000     
+
+(N14851)    3.0000 (N14859)-113.1E-09 
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_WL         0.000E+00
+    V_BL         1.964E-20
+    V_V1        -9.025E-12
+    V_BL1       -3.010E-12
+
+    TOTAL POWER DISSIPATION   3.61E-11  WATTS
+
+
+
+          JOB CONCLUDED
+
+**** 07/23/22 18:54:29 ******* PSpice Lite (March 2016) ******* ID# 10813 ****
+
+ ** Profile: "SCHEMATIC1-transient"  [ C:\Users\FraH\Desktop\StorageCircuits\0a-6TCell-SRAM\0a-6tcell-pspicefiles\schematic1\transien
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  Total job time (using Solver 1)   =         .03
+
